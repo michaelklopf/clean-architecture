@@ -8,18 +8,18 @@ class Student {
   lastName: string;
 
   registeredCourses: Course[];
-  enrolledCourse: Course[];
+  enrolledCourses: Course[];
 
   constructor() {
     this.registeredCourses = [];
-    this.enrolledCourse = [];
+    this.enrolledCourses = [];
   }
 
   registerForCourse(course: Course): boolean {
-    if (this.enrolledCourse.find((enrolledCourse): boolean => { return enrolledCourse.Code == course.Code })) {
+    if (this.enrolledCourses.find((enrolledCourse): boolean => { return enrolledCourse.code == course.code })) {
       return false;
     }
-    if (Date.now() > Date.now(course.StartDate - (3600 * 24 * 5))) {
+    if (new Date(Date.now()) > new Date(course.startDate.setDate(new Date().getDate()-5))) {
       return false;
     }
 
