@@ -19,7 +19,7 @@ class Student {
     if (this.enrolledCourses.find((enrolledCourse): boolean => { return enrolledCourse.code == course.code })) {
       return false;
     }
-    if (new Date(Date.now()) > new Date(course.startDate.setDate(new Date().getDate()-5))) {
+    if (new Date(Date.now()) > new Date(course.startDate.setDate(course.startDate.getDate()-5))) {
       return false;
     }
 

@@ -1,3 +1,5 @@
+// Interface adapter or gateway
+
 import Course from '../entities/Course';
 
 interface ICourseRepository {

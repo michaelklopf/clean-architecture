@@ -1,3 +1,5 @@
+// Interface adapter or gateway
+
 interface IAuthService {
   isAuthenticated(): boolean;
 }

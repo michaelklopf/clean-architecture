@@ -1,3 +1,5 @@
+// Interface adapter or gateway
+
 import Student from '../entities/Student';
 
 interface IStudentRepository {
