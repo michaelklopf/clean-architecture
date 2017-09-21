@@ -4,7 +4,7 @@ class CourseRegistrationResponseMessage {
   errors: string[];
   message: string;
 
-  constructor(success: boolean, errors: string[], message = '') {
+  constructor(success: boolean, errors: string[], message: string = '') {
     this.success = success;
     this.errors = errors;
     this.message = message;

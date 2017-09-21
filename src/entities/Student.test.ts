@@ -3,7 +3,7 @@ import Course from './Course';
 
 it('cannot register for course within 5 days of start date', () => {
   // arrange
-  var student = new Student();
+  var student = new Student(1);
 
   var course = new Course(
     'BIOL-1507EL',
@@ -24,7 +24,7 @@ it('cannot register for course within 5 days of start date', () => {
 
 it('cannot register for course already enrolled in', () => {
   // arrange
-  var student = new Student();
+  var student = new Student(1);
   student.enrolledCourses.push(new Course('BIOL-1507EL', 'Biology II', new Date(new Date().setDate(new Date().getDate()+20))));
   student.enrolledCourses.push(new Course('MATH-4067EL', 'Math I', new Date(new Date().setDate(new Date().getDate()+30))));
 
@@ -37,7 +37,7 @@ it('cannot register for course already enrolled in', () => {
 
 it('can register for a course not rolled in and not within 5 days of start', () => {
     // arrange
-    var student = new Student();
+    var student = new Student(1);
     var course = new Course('BIOL-1507EL', 'Biology II', new Date(new Date().setDate(new Date().getDate()+30)));
 
     // act

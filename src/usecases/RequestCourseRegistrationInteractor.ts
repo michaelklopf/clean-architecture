@@ -4,11 +4,11 @@ import AuthService from '../gateways/AuthService';
 import CourseRepository from '../gateways/CourseRepository';
 import StudentRepository from '../gateways/StudentRepository';
 
-interface IRequestHandler {
+interface RequestHandler {
   handle(message: CourseRegistrationRequestMessage): CourseRegistrationResponseMessage;
 }
 
-class RequestCourseRegistrationInteractor implements IRequestHandler {
+class RequestCourseRegistrationInteractor implements RequestHandler {
 
   // these things are Gateways, they deal with database, rest service or other external agencies
   authService: AuthService;
@@ -39,13 +39,13 @@ class RequestCourseRegistrationInteractor implements IRequestHandler {
       var course = this.courseRepository.getByCode(courseCode);
 
       if (!student.registerForCourse(course)) {
-        errors.push("Unable to register for ", course.code);
+        errors.push('Unable to register for ', course.code);
       }
     });
 
     this.studentRepository.save(student);
 
-    return new CourseRegistrationResponseMessage(errors.length == 0, errors);
+    return new CourseRegistrationResponseMessage(errors.length === 0, errors);
   }
 }
 

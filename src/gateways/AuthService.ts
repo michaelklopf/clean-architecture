@@ -1,10 +1,10 @@
 // Interface adapter or gateway
 
-interface IAuthService {
+interface AuthService {
   isAuthenticated(): boolean;
 }
 
-class AuthService implements IAuthService {
+class AuthService implements AuthService {
   isAuthenticated(): boolean {
     return true;
   }

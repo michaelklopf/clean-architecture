@@ -4,22 +4,24 @@
 import Course from './Course';
 
 class Student {
+  id: number;
   firstName: string;
   lastName: string;
 
   registeredCourses: Course[];
   enrolledCourses: Course[];
 
-  constructor() {
+  constructor(id: number) {
+    this.id = id;
     this.registeredCourses = [];
     this.enrolledCourses = [];
   }
 
   registerForCourse(course: Course): boolean {
-    if (this.enrolledCourses.find((enrolledCourse): boolean => { return enrolledCourse.code == course.code })) {
+    if (this.enrolledCourses.find((enrolledCourse): boolean => { return enrolledCourse.code === course.code; })) {
       return false;
     }
-    if (new Date(Date.now()) > new Date(course.startDate.setDate(course.startDate.getDate()-5))) {
+    if (new Date(Date.now()) > new Date(course.startDate.setDate(course.startDate.getDate() - 5))) {
       return false;
     }
 
