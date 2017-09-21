@@ -18,8 +18,8 @@ class App extends React.Component {
     var studentRepository = new StudentRepository();
     var courseRepository = new CourseRepository();
 
-    courseRepository.addCourse(new Course('test-1', 'Programming with clean architecture'));
-    courseRepository.addCourse(new Course('test-2', 'Debugging all the code'));
+    courseRepository.addCourse(new Course('test-1', 'Programming with clean architecture', new Date(2017, 11, 12)));
+    courseRepository.addCourse(new Course('test-2', 'Debugging all the code', new Date(2017, 12, 6)));
     studentRepository.save(new Student(1));
   
     var courseRegistrationRequestUseCase = new RequestCourseRegistrationInteractor(
@@ -27,18 +27,18 @@ class App extends React.Component {
       courseRepository,
       studentRepository
     );
-  
+
+    console.log('Repo before ', studentRepository.getById(1).registeredCourses);
+
     var useCaseRequestMessage = new CourseRegistrationRequestMessage(1, ['test-1']);
 
-    var responseMessage = courseRegistrationRequestUseCase.handle(useCaseRequestMessage);
-
-    console.log(responseMessage);
+    courseRegistrationRequestUseCase.handle(useCaseRequestMessage);
 
     var useCaseRequestMessage2 = new CourseRegistrationRequestMessage(1, ['test-2']);
 
-    var secondResponse = courseRegistrationRequestUseCase.handle(useCaseRequestMessage2);
+    courseRegistrationRequestUseCase.handle(useCaseRequestMessage2);
 
-    console.log(secondResponse);
+    console.log('Repo after ', studentRepository.getById(1).registeredCourses);
 
     return (
       <div className="App">
