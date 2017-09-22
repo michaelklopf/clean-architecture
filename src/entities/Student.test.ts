@@ -11,9 +11,9 @@ it('cannot register for course within 5 days of start date', () => {
     new Date(new Date().setDate(new Date().getDate()-3))
   );
 
-  console.log("Today is ", new Date(Date.now()));
-  console.log("If today later than final date for entering, then false");
-  console.log("Final date for entering with 5 day margin is ", new Date(course.startDate.setDate(new Date().getDate()-5)));
+  console.log('Today is ', new Date(Date.now()));
+  console.log('If today later than final date for entering, then false');
+  console.log('Final date for entering with 5 day margin is ', new Date(course.startDate.setDate(new Date().getDate()-5)));
 
   // act
   var result = student.registerForCourse(course);

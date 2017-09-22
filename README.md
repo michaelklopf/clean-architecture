@@ -13,11 +13,15 @@ Created project with the command `create-react-app cleanarchitecturereact --scri
 ## Clean architecture
 Concept is based on Robert C. Martins work Clean Architecture which is released at the end of 2017.
 
-Application is structured in different layers. The innermost layer consists of entities, which are independent of exterior influences. This allows to test them thoroughly with programmatic tests.
+The application is structured in different layers. The innermost layer consists of entities, which are independent of exterior influences. This allows to test them thoroughly with programmatic tests.
 
 Entities are consumed by use cases/interactors that use the business rules to fulfill the application business rules.
 
-Use cases are communicating via messages over gateways with the entities and surrounding system. The author makes use of the mediator pattern.
+Interfaces are communicating via messages with the use cases and surrounding system. The author makes use of the mediator pattern.
+
+The use case makes use of gateways that describe how external services and repositories should be consumed. The gateways are injected into the use case. Use cases only know what behavior the gateways offer but not how it is implemented.
+
+App.tsx in this example is the interface adapter. All necessary components are connected here. The interface sets up the repositories and calls the use case via communication with messages. The response message is handed to the presenter which generates a presentation or model of the data. The interface presents that to the user.
 
 ## Todo
-Add Redux and add presentation logic.
+Add Redux and components.

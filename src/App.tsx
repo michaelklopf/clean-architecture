@@ -10,6 +10,8 @@ import Course from './entities/Course';
 import Student from './entities/Student';
 import CourseRegistrationRequestMessage from './messages/CourseRegistrationRequestMessage';
 
+import CourseRegistrationResponsePresenter from './presenter/CourseRegistrationResponsePresenter';
+
 const logo = require('./logo.svg');
 
 class App extends React.Component {
@@ -28,17 +30,15 @@ class App extends React.Component {
       studentRepository
     );
 
-    console.log('Repo before ', studentRepository.getById(1).registeredCourses);
+    var courseRegistrationResponsePresenter = new CourseRegistrationResponsePresenter();
 
     var useCaseRequestMessage = new CourseRegistrationRequestMessage(1, ['test-1']);
 
-    courseRegistrationRequestUseCase.handle(useCaseRequestMessage);
+    courseRegistrationResponsePresenter.handle(courseRegistrationRequestUseCase.handle(useCaseRequestMessage));
 
     var useCaseRequestMessage2 = new CourseRegistrationRequestMessage(1, ['test-2']);
 
-    courseRegistrationRequestUseCase.handle(useCaseRequestMessage2);
-
-    console.log('Repo after ', studentRepository.getById(1).registeredCourses);
+    courseRegistrationResponsePresenter.handle(courseRegistrationRequestUseCase.handle(useCaseRequestMessage2));
 
     return (
       <div className="App">
