@@ -1,12 +1,22 @@
 // actions for courses
 // Discriminated Unions
 // https://basarat.gitbooks.io/typescript/docs/types/discriminated-unions.html
-// https://hackernoon.com/tagged-unions-react-and-redux-55e262e4d0ea
 import Course from '../entities/Course';
 
-interface AddCourseAction {
+export interface AddCourseAction {
   type: 'ADD_COURSE',
   course: Course
 }
 
-export type CourseAction = AddCourseAction;
+export function addCourse(course: Course): AddCourseAction {
+  return {
+    type: 'ADD_COURSE',
+    course: course
+  };
+}
+
+export interface DefaultCourseAction {
+  type: 'UNKNOWN'
+}
+
+export type CourseAction = AddCourseAction | DefaultCourseAction;

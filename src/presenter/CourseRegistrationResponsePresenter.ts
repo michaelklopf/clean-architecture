@@ -2,9 +2,9 @@ import CourseRegistrationResponseMessage from '../messages/CourseRegistrationRes
 
 class CourseRegistrationResponsePresenter {
 
-  handle(message: CourseRegistrationResponseMessage): void {
+  handle(message: CourseRegistrationResponseMessage): string {
     if (message.success) {
-      console.log('Course registration successful!');
+      return 'Course registration successful!';
     }
 
     var errorOutput = '';
@@ -12,7 +12,7 @@ class CourseRegistrationResponsePresenter {
       errorOutput = errorOutput + 'Failed to register course(s)' + '\n' + error;
     });
 
-    console.log(errorOutput);
+    return errorOutput;
   }
 }
 
