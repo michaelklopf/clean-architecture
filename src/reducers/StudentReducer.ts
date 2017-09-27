@@ -2,7 +2,11 @@ import Student from '../entities/Student';
 
 import { StudentAction } from '../actions/StudentActions';
 
-export const initialStateForStudent: { students: Student[] } = {
+export type StudentState {
+  students: Student[]
+}
+
+export const initialStateForStudent: StudentState = {
   students: []
 };
 

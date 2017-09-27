@@ -2,7 +2,11 @@ import Course from '../entities/Course';
 
 import { CourseAction } from '../actions/CourseActions';
 
-export const initialStateForCourse: { courses: Course[] } = {
+export type CourseState = {
+  courses: Course[]
+};
+
+export const initialStateForCourse: CourseState = {
   courses: []
 };
 

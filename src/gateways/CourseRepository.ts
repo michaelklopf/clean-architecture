@@ -2,13 +2,9 @@
 
 import Course from '../entities/Course';
 
-interface CourseRepository {
-  getByCode(code: string): Course;
-  getAll(): Course[];
-  addCourse(course: Course): void;
-}
+import CourseGateway from './CourseGateway';
 
-class CourseRepository implements CourseRepository {
+class CourseRepository implements CourseGateway {
   courses: Course[];
 
   constructor() {

@@ -1,13 +1,9 @@
 // Interface adapter or gateway
-
 import Student from '../entities/Student';
 
-interface StudentRepository {
-  getById(id: number): Student;
-  save(student: Student): void;
-}
+import StudentGateway from './StudentGateway';
 
-class StudentRepository implements StudentRepository {
+class StudentRepository implements StudentGateway {
   students: Student[];
 
   constructor() {
