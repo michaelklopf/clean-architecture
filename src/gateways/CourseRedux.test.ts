@@ -7,7 +7,7 @@ import CourseRedux from './CourseRedux';
 it('can find the right course', () => {
   // arrange
   let store = createStore(rootReducer);
-  var courseGateway = new CourseRedux(store);
+  var courseGateway = new CourseRedux(store.getState, store.dispatch);
   courseGateway.addCourse(new Course('test1', 'Inception'));
   courseGateway.addCourse(new Course('test2', 'The Dark Knight'));
 

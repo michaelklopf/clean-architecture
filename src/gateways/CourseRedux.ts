@@ -1,28 +1,32 @@
 // Redux gateway
+import { Dispatch } from 'redux';
+
 import Course from '../entities/Course';
 import CourseGateway from './CourseGateway';
 import { addCourse } from '../actions/CourseActions';
 import { State } from '../reducer';
 
 class CourseRedux implements CourseGateway {
-  store: State;
+  getState: () => State;
+  dispatch: Dispatch<{}>;
 
-  constructor(store: State) {
-    this.store = store;
+  constructor(getState: () => State, dispatch: Dispatch<{}>) {
+    this.getState = getState;
+    this.dispatch = dispatch;
   }
 
   getByCode(code: string): Course {
-    let courses = this.store.getState().courses.courses;
-    var foundCourses = courses.filter((course): boolean => { return course.code === code; });
+    let state = this.getState();
+    var foundCourses = state.courses.courses.filter((course): boolean => { return course.code === code; });
     return foundCourses[0];
   }
 
   getAll(): Course[] {
-    return this.store.getState().courses.courses;
+    return this.getState().courses.courses;
   }
 
   addCourse(course: Course) {
-    this.store.dispatch(addCourse(course));
+    this.dispatch(addCourse(course));
   }
 }
 

@@ -3,9 +3,12 @@ import { combineReducers } from 'redux';
 import courses, { CourseState } from './reducers/CourseReducer';
 import students, { StudentState } from './reducers/StudentReducer';
 
-export type State = CourseState | StudentState;
+export type State = {
+  courses: CourseState,
+  students: StudentState
+};
 
-const rootReducer = combineReducers({
+const rootReducer = combineReducers<State>({
   courses,
   students
 });
