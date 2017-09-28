@@ -3,14 +3,14 @@ import { Dispatch } from 'redux';
 
 import Course from '../entities/Course';
 import CourseGateway from './CourseGateway';
-import { addCourse } from '../actions/CourseActions';
+import { addCourse, CourseAction } from '../actions/CourseActions';
 import { State } from '../reducer';
 
 class CourseRedux implements CourseGateway {
   getState: () => State;
   dispatch: Dispatch<{}>;
 
-  constructor(getState: () => State, dispatch: Dispatch<{}>) {
+  constructor(getState: () => State, dispatch: Dispatch<CourseAction>) {
     this.getState = getState;
     this.dispatch = dispatch;
   }
