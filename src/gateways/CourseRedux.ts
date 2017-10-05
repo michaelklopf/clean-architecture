@@ -8,7 +8,7 @@ import { State } from '../reducer';
 
 class CourseRedux implements CourseGateway {
   getState: () => State;
-  dispatch: Dispatch<{}>;
+  dispatch: Dispatch<CourseAction>;
 
   constructor(getState: () => State, dispatch: Dispatch<CourseAction>) {
     this.getState = getState;

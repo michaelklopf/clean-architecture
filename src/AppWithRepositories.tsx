@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { createStore } from 'redux'
-import rootReducer from './reducer';
 
 import './App.css';
 import RequestCourseRegistrationInteractor from './usecases/RequestCourseRegistrationInteractor';
@@ -19,8 +17,6 @@ const logo = require('./logo.svg');
 
 class App extends React.Component {
   render() {
-    let store = createStore(rootReducer);
-    
     var authService = new AuthService();
     var studentRepository = new StudentRepository();
     var courseRepository = new CourseRepository();
