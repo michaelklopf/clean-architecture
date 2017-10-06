@@ -4,7 +4,7 @@ import AuthService from '../gateways/AuthService';
 import CourseGateway from '../gateways/CourseGateway';
 import StudentGateway from '../gateways/StudentGateway';
 
-interface RequestHandler {
+export interface RequestHandler {
   handle(message: CourseRegistrationRequestMessage): CourseRegistrationResponseMessage;
 }
 

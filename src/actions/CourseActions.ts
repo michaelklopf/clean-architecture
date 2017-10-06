@@ -4,8 +4,8 @@
 import Course from '../entities/Course';
 
 export interface AddCourseAction {
-  type: 'ADD_COURSE',
-  course: Course
+  type: 'ADD_COURSE';
+  course: Course;
 }
 
 export function addCourse(course: Course): AddCourseAction {
@@ -16,7 +16,7 @@ export function addCourse(course: Course): AddCourseAction {
 }
 
 export interface DefaultCourseAction {
-  type: 'UNKNOWN'
+  type: 'UNKNOWN';
 }
 
 export type CourseAction = AddCourseAction | DefaultCourseAction;

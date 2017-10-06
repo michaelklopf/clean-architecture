@@ -24,4 +24,4 @@ The use case makes use of gateways that describe how external services and repos
 App.tsx in this example is the interface adapter. All necessary components are connected here. The interface sets up the repositories and calls the use case via communication with messages. The response message is handed to the presenter which generates a presentation or model of the data. The interface presents that to the user.
 
 ## Todo
-Add Redux and components.
+Submit form data and present result to user.

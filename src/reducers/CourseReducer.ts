@@ -10,7 +10,7 @@ export const initialStateForCourse: CourseState = {
   courses: []
 };
 
-export default function courses(state = initialStateForCourse, action: CourseAction) {
+export default function courses(state: CourseState = initialStateForCourse, action: CourseAction) {
   switch (action.type) {
     case 'ADD_COURSE':
       return Object.assign({}, state, {

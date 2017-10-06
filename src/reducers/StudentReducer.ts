@@ -4,13 +4,13 @@ import { StudentAction } from '../actions/StudentActions';
 
 export type StudentState = {
   students: Student[]
-}
+};
 
 export const initialStateForStudent: StudentState = {
   students: []
 };
 
-export default function students(state = initialStateForStudent, action: StudentAction) {
+export default function students(state: StudentState = initialStateForStudent, action: StudentAction) {
   switch (action.type) {
     case 'SAVE_STUDENT':
       return Object.assign({}, state, {

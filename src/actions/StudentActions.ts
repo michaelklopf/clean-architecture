@@ -2,8 +2,8 @@
 import Student from '../entities/Student';
 
 export interface SaveStudentAction {
-  type: 'SAVE_STUDENT',
-  student: Student
+  type: 'SAVE_STUDENT';
+  student: Student;
 }
 
 export function saveStudent(student: Student): SaveStudentAction {
@@ -14,7 +14,7 @@ export function saveStudent(student: Student): SaveStudentAction {
 }
 
 export interface DefaultStudentAction {
-  type: 'UNKNOWN'
+  type: 'UNKNOWN';
 }
 
 export type StudentAction = SaveStudentAction | DefaultStudentAction;

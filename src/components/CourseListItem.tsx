@@ -4,11 +4,11 @@ interface CourseListItemProps {
   courseName: string;
 }
 
-class CourseListItem extends Component<CourseListItemProps, {}> {
+class CourseListItem extends Component<CourseListItemProps> {
   render() {
     const courseName = this.props.courseName;
     return (
-      <li>  
+      <li>
         <label>
           <input type="checkbox" name="course" value={courseName} />
           {courseName}
