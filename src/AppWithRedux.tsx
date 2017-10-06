@@ -1,23 +1,13 @@
-import * as React from 'react';
-import { createStore } from 'redux'
-import rootReducer from './reducer';
+import React, { Component } from 'react';
+// import { createStore } from 'redux';
+// import rootReducer from './reducer';
 
-import './App.css';
+import CourseRegistration from './components/CourseRegistration';
 
-const logo = require('./logo.svg');
-
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          Look in the console for output
-        </p>
-      </div>
+      <CourseRegistration />
     );
   }
 }

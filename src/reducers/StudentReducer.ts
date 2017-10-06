@@ -2,7 +2,7 @@ import Student from '../entities/Student';
 
 import { StudentAction } from '../actions/StudentActions';
 
-export type StudentState {
+export type StudentState = {
   students: Student[]
 }
 
