@@ -15,8 +15,20 @@ export function addCourse(course: Course): AddCourseAction {
   };
 }
 
+export interface ToggleCheckAction {
+  type: 'TOGGLE_COURSE';
+  courseCode: string;
+}
+
+export function toggleCheck(courseCode: string): ToggleCheckAction {
+  return {
+    type: 'TOGGLE_COURSE',
+    courseCode: courseCode
+  };
+}
+
 export interface DefaultCourseAction {
   type: 'UNKNOWN';
 }
 
-export type CourseAction = AddCourseAction | DefaultCourseAction;
+export type CourseAction = AddCourseAction | ToggleCheckAction | DefaultCourseAction;

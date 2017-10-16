@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import CourseListItem from './CourseListItem';
 import { State } from '../reducer';
 import Course from '../entities/Course';
+import { toggleCheck } from '../actions/CourseActions';
 
 import { RequestHandler } from '../usecases/RequestCourseRegistrationInteractor';
 import CourseRegistrationRequestMessage from '../messages/CourseRegistrationRequestMessage';
@@ -40,7 +41,11 @@ class CourseRegistration extends Component<CourseRegistrationProps> {
         <h3>Choose your courses:</h3> 
         <ul>
           {this.props.courses.map(function(course: Course){
-            return <CourseListItem courseName={course.name} key={course.code}/>;
+            return <CourseListItem
+                courseName={course.name}
+                key={course.code}
+                courseCode={course.code}
+                toggleCheck={toggleCheck} />;
           })}
         </ul>
         <input type="submit" onClick={this.register} value="Register" />
@@ -55,4 +60,12 @@ const mapStateToProps = (state: State) => {
   };
 };
 
-export default connect(mapStateToProps)(CourseRegistration);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onChangeCheck: (course: Course) => {
+      dispatch(toggleCheck(course));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseRegistration);
