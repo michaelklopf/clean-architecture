@@ -30,7 +30,6 @@ class RequestCourseRegistrationInteractor implements RequestHandler {
 
     // get the student
     var student = this.studentGateway.getById(message.studentId);
-    console.log(student);
     if (student === undefined || student === null) {
       return new CourseRegistrationResponseMessage(false, [], 'Student is not enrolled.');
     }

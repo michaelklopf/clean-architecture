@@ -12,7 +12,5 @@ it('can find the right student', () => {
 
   var student = studentGateway.getById(2);
 
-  console.log('The student is', student);
-
   expect(student.id).toBe(2);
 });

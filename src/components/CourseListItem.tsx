@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 
 interface CourseListItemProps {
-  courseName: string;
-  courseCode: string;
-  toggleCheck: Function;
+  courseName?: string;
+  courseCode?: string;
+  toggleCheck?: Function;
 }
 
 class CourseListItem extends Component<CourseListItemProps> {
+  constructor(props: any) {
+    super(props);
+
+    this.toggleItem = this.toggleItem.bind(this);
+  }
+
+  toggleItem() {
+    this.props.toggleCheck!(this.props.courseCode);
+  }
+
   render() {
     const courseName = this.props.courseName;
-    const courseCode = this.props.courseCode;
     return (
       <li>
         <label>
@@ -17,7 +26,8 @@ class CourseListItem extends Component<CourseListItemProps> {
               type="checkbox"
               name="course"
               value={courseName}
-              onChange={this.props.toggleCheck(courseCode)} />
+              onChange={this.toggleItem}
+          />
           {courseName}
         </label>
       </li>

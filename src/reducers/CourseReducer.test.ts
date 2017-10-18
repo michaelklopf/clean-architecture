@@ -1,6 +1,6 @@
 import Course from '../entities/Course';
 import courses, { initialStateForCourse } from './CourseReducer';
-import { DefaultCourseAction, AddCourseAction } from '../actions/CourseActions';
+import { DefaultCourseAction, AddCourseAction, toggleCheck } from '../actions/CourseActions';
 
 it('returns initial state as default state', () => {
   // arrange
@@ -33,6 +33,32 @@ it('adds course to state', () => {
   expect(returnState).toEqual({
     courses: [
       course
-    ]
+    ],
+    registeredCourses: []
+  });
+});
+
+it('adds course to registered course if not already exists', () => {
+  // arrange
+  const action = toggleCheck('test-1');
+  // act
+  const returnState = courses(initialStateForCourse, action);
+  // assert
+  expect(returnState).toEqual({
+    courses: [],
+    registeredCourses: ['test-1']
+  });
+});
+
+it('removes course from registered course if it already exists', () => {
+  // arrange
+  const action = toggleCheck('test-1');
+  // act
+  const returnState = courses(initialStateForCourse, action);
+  const finalState = courses(returnState, action);
+  // assert
+  expect(finalState).toEqual({
+    courses: [],
+    registeredCourses: []
   });
 });

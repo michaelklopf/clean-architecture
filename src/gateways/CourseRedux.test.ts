@@ -14,9 +14,6 @@ it('can find the right course', () => {
   // act
   var course = courseGateway.getByCode('test2');
 
-  console.log('The repo is ', courseGateway);
-  console.log('The course is', course);
-
   // assert
   expect(course.code).toBe('test2');
 });
